@@ -1,0 +1,143 @@
+/* Khung bao bọc toàn màn hình, căn giữa form đăng nhập */
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  background-color: #f8fafc; /* Nền xám xanh dịu mát */
+  padding: 20px;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+/* Khối Form Đăng nhập chính */
+.auth-form {
+  background: #ffffff;
+  padding: 40px 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05); /* Đổ bóng nhẹ sang trọng */
+  width: 100%;
+  max-width: 400px;
+  box-sizing: border-box;
+}
+
+.auth-form h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #1e293b;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+/* Các cụm ô nhập liệu */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #475569;
+  font-size: 14px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 15px;
+  color: #334155;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+/* Khi bấm chuột vào ô nhập */
+.form-control:focus {
+  border-color: #3b82f6; /* Viền xanh */
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+  outline: none;
+}
+
+/* Khi ô nhập bị trống hoặc sai định dạng */
+.form-control.is-invalid {
+  border-color: #ef4444;
+  background-color: #fef2f2;
+}
+
+.error-text {
+  color: #ef4444;
+  font-size: 13px;
+  margin-top: 6px;
+  font-weight: 500;
+}
+
+/* Nút Đăng Nhập Hệ Thống */
+.btn-submit {
+  width: 100%;
+  padding: 13px;
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background 0.2s;
+}
+
+.btn-submit:hover {
+  background-color: #2563eb;
+}
+
+/* Đường gạch ngang chữ HOẶC */
+.divider {
+  text-align: center;
+  margin: 25px 0;
+  position: relative;
+}
+
+.divider::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: #e2e8f0;
+}
+
+.divider span {
+  background: #ffffff;
+  padding: 0 15px;
+  position: relative;
+  color: #94a3b8;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* Nút Google */
+#googleBtn {
+  display: flex;
+  justify-content: center;
+  margin-top: 5px;
+}
+
+/* Dòng chuyển hướng dưới cùng */
+.auth-footer {
+  text-align: center;
+  margin-top: 25px;
+  font-size: 14px;
+  color: #64748b;
+}
+
+.auth-footer a {
+  color: #3b82f6;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.auth-footer a:hover {
+  text-decoration: underline;
+}

@@ -1,1 +1,17 @@
-<p>navbar works!</p>
+`
+    <nav style="display: flex; justify-content: space-between; padding: 15px; background: #eee;">
+      <a routerLink="/"><b>🏨 Hotel Booking</b></a>
+      
+      <div>
+        <div *ngIf="!(auth.isLoggedIn$ | async)">
+          <a routerLink="/auth/login" style="margin-right: 10px;">Đăng nhập</a>
+          <a routerLink="/auth/register">Đăng ký</a>
+        </div>
+
+        <div *ngIf="auth.isLoggedIn$ | async">
+          <span style="margin-right: 15px; color: green;">● Đang hoạt động</span>
+          <button (click)="onLogout()" style="background: red; color: white; border: none; cursor: pointer;">Đăng xuất</button>
+        </div>
+      </div>
+    </nav>
+  `

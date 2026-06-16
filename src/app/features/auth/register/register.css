@@ -1,0 +1,109 @@
+/* Khung bao bọc toàn màn hình đăng ký */
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh; /* Tăng chiều cao để chứa form dài */
+  background-color: #f4f7f6; /* Nền xám xanh lá nhẹ */
+  padding: 30px 20px;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+/* Khối Form Đăng ký chính (Rộng hơn form login một chút) */
+.auth-form {
+  background: #ffffff;
+  padding: 40px 35px;
+  border-radius: 16px; /* Bo góc tròn hơn tạo sự thân thiện */
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.04);
+  width: 100%;
+  max-width: 460px;
+  box-sizing: border-box;
+}
+
+.auth-form h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #111827;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #374151;
+  font-size: 14px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #1f2937;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+/* Hiệu ứng focus màu xanh lá cây đặc trưng của Đăng ký */
+.form-control:focus {
+  border-color: #10b981; 
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15);
+  outline: none;
+}
+
+.form-control.is-invalid {
+  border-color: #f87171;
+  background-color: #fef2f2;
+}
+
+.error-text {
+  color: #dc2626;
+  font-size: 13px;
+  margin-top: 5px;
+  font-weight: 500;
+}
+
+/* Nút Đăng Ký Tài Khoản */
+.btn-submit {
+  width: 100%;
+  padding: 13px;
+  background-color: #10b981; /* Màu xanh lá tạo cảm giác an toàn, tạo mới */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: background 0.2s;
+  box-shadow: 0 4px 10px rgba(16, 185, 129, 0.2);
+}
+
+.btn-submit:hover {
+  background-color: #059669;
+}
+
+/* Dòng chuyển hướng quay lại login */
+.auth-footer {
+  text-align: center;
+  margin-top: 25px;
+  font-size: 14px;
+  color: #4b5563;
+}
+
+.auth-footer a {
+  color: #10b981;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.auth-footer a:hover {
+  text-decoration: underline;
+}
