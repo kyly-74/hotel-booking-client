@@ -1,7 +1,8 @@
 import { Routes } from '@angular/router';
-// Import cả 2 component Đăng nhập và Đăng ký (bạn kiểm tra lại đường dẫn chính xác trong dự án nhé)
 import { Login } from './features/auth/login/login'; 
 import { Register } from './features/auth/register/register'; 
+import { PaymentResult } from './features/payment/payment-result/payment-result';
+import { Checkoutpayment } from './features/payment/checkoutpayment/checkoutpayment';
 
 export const routes: Routes = [
   {
@@ -10,15 +11,21 @@ export const routes: Routes = [
   },
   {
     path: 'auth/register',
-    component: Register // <-- Bắt buộc phải khai báo đường dẫn này thì routerLink mới chạy được
+    component: Register 
   },
   {
     path: '',
     redirectTo: 'auth/login',
     pathMatch: 'full'
   },
+  //  ĐƯA CÁC ĐƯỜNG DẪN THANH TOÁN LÊN TRÊN `**`
+  { path: 'payment/success', component: PaymentResult },
+  { path: 'payment/failed',  component: PaymentResult },
+  { path: 'test-payment', component: Checkoutpayment },
+
+  // 🔽 LUÔN LUÔN ĐỂ ROUTE '**' Ở DÒNG CUỐI CÙNG CỦA MẢNG
   {
     path: '**',
-    redirectTo: 'auth/login' // Tất cả các đường dẫn lạ (bao gồm cả lỗi gõ sai) sẽ bị đá về login
+    redirectTo: 'auth/login' 
   }
 ];

@@ -1,0 +1,17 @@
+<div class="result-container">
+
+  <!-- Thành công -->
+  <div *ngIf="success">
+    <h1>✅ Thanh toán thành công!</h1>
+    <p>Booking <strong>#{{ bookingId }}</strong> đã được xác nhận.</p>
+    <a routerLink="/my-bookings">Xem booking của tôi</a>
+  </div>
+
+  <!-- Thất bại -->
+  <div *ngIf="!success">
+    <h1>❌ Thanh toán thất bại!</h1>
+    <p>Vui lòng thử lại.</p>
+    <a routerLink="/checkout">Quay lại</a>
+  </div>
+
+</div>
