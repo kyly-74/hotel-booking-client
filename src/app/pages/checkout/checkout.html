@@ -1,0 +1,37 @@
+<h2>Checkout</h2>
+<pre>{{ room | json }}</pre>
+<div *ngIf="room">
+
+  <h3>
+  {{ room?.roomNumber || room?.name || 'Phòng' }}
+</h3>
+
+<p>
+  Giá:
+  {{ (room?.price || room?.roomType?.price || 0) | number }} đ
+</p>
+
+  <!-- DATE INFO -->
+  <p>Check-in: {{ checkIn }}</p>
+  <p>Check-out: {{ checkOut }}</p>
+
+  <p>Số ngày: {{ days }}</p>
+
+  <hr>
+
+  <!-- TOTAL -->
+  <h3>Tổng tiền: {{ totalPrice | number }} đ</h3>
+
+  <hr>
+
+  <!-- BUTTON -->
+  <button (click)="submit()">
+    Xác nhận đặt phòng
+  </button>
+
+</div>
+
+<!-- nếu không có dữ liệu -->
+<div *ngIf="!room">
+  <p>Không có dữ liệu booking</p>
+</div>

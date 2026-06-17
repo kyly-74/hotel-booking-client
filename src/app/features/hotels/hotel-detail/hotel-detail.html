@@ -1,1 +1,95 @@
-<p>hotel-detail works!</p>
+
+<div class="hotel-detail-container">
+  <!-- Loading -->
+  <div *ngIf="loading" class="loading">
+    Đang tải dữ liệu khách sạn...
+  </div>
+
+  <!-- Hotel Detail -->
+  <div *ngIf="!loading && hotel">
+
+    <div class="hotel-header">
+
+      <img
+        [src]="hotel.imageUrl || 'https://picsum.photos/800/400'"
+        [alt]="hotel.name">
+
+      <div class="hotel-info">
+
+        <h1>{{ hotel.name }}</h1>
+
+        <p class="location">
+          📍 {{ hotel.city }}
+        </p>
+
+        <p class="star">
+          ⭐ {{ hotel.starRating || 0 }}
+        </p>
+
+        <p class="price">
+          Từ {{ hotel.minPrice || hotel.price || 0 | number }} đ / đêm
+        </p>
+
+      </div>
+
+    </div>
+
+    <h2>Danh sách phòng</h2>
+
+    <!-- Có phòng -->
+    <div
+      class="room-grid"
+      *ngIf="hotel.rooms && hotel.rooms.length > 0">
+
+      <div
+        class="room-card"
+        *ngFor="let room of hotel.rooms">
+
+        <h3>
+          Phòng {{ room.roomNumber || room.name || room.id }}
+        </h3>
+
+        <p>
+          Giá:
+          <strong>
+            {{ room.price | number }} đ
+          </strong>
+        </p>
+
+       <button
+  class="btn-book"
+  (click)="bookRoom(room)">
+  🏨 Đặt phòng
+</button>
+
+      </div>
+
+    </div>
+
+    <!-- Không có phòng -->
+    <div
+      *ngIf="!hotel.rooms || hotel.rooms.length === 0"
+      class="room-card">
+
+      <h3>Đặt phòng khách sạn</h3>
+
+      <p>
+        Hiện chưa có dữ liệu phòng chi tiết.
+      </p>
+
+      <button
+        class="btn-book"
+        (click)="bookRoom(hotel)">
+        🏨 Đặt ngay
+      </button>
+
+    </div>
+
+  </div>
+
+  <!-- Empty -->
+  <div *ngIf="!loading && !hotel" class="empty">
+    Không tìm thấy khách sạn.
+  </div>
+
+</div>

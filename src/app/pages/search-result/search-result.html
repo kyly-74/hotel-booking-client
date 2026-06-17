@@ -1,0 +1,72 @@
+<!-- <pre>{{ hotels | json }}</pre> -->
+
+<div class="search-page">
+
+  <!-- HEADER -->
+  <div class="search-header">
+    <h1>Kết quả tìm kiếm</h1>
+    <div class="search-info">
+      <span>📍 {{ destination }}</span>
+      <span>👥 {{ guests }} khách</span>
+      <span *ngIf="!loading">
+        🏨 {{ (hotels || []).length }} khách sạn
+      </span>
+    </div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="search-content">
+
+    <!-- FILTER -->
+    <aside class="filter-sidebar">
+      <h3>Bộ lọc</h3>
+      <label><input type="checkbox"> 5 sao</label>
+      <label><input type="checkbox"> Hồ bơi</label>
+      <label><input type="checkbox"> Wifi miễn phí</label>
+      <label><input type="checkbox"> Ăn sáng</label>
+    </aside>
+
+    <!-- LIST -->
+    <div class="hotel-list">
+
+      <!-- loading -->
+      <div *ngIf="loading" class="loading">
+        Đang tìm khách sạn...
+      </div>
+
+      <!-- card -->
+      <div class="hotel-card" *ngFor="let hotel of (hotels || [])">
+        <div class="hotel-image">
+          <img [src]="hotel.imageUrl || 'https://picsum.photos/400/250'"
+               [alt]="hotel.name">
+        </div>
+
+        <div class="hotel-info">
+          <h2>{{ hotel.name }}</h2>
+          <div class="hotel-stars">⭐ {{ hotel.starRating || 0 }} sao</div>
+          <p>📍 {{ hotel.address }}</p>
+          <p>🏙️ {{ hotel.city }}</p>
+          <p>👥 Tối đa {{ hotel.maxOccupancy }} khách</p>
+          <p class="description">{{ hotel.description }}</p>
+        </div>
+
+        <div class="hotel-price">
+          <div class="price-box">
+            <small>Từ</small>
+            <div class="price">{{ hotel.price | number }} đ</div>
+            <small>/ đêm</small>
+          </div>
+          <button class="btn-detail" [routerLink]="['/hotel', hotel.id]">
+            Xem chi tiết
+          </button>
+        </div>
+      </div>
+
+      <!-- empty -->
+      <div *ngIf="!loading && (hotels || []).length === 0" class="empty">
+        Không tìm thấy khách sạn phù hợp
+      </div>
+
+    </div>
+  </div>
+</div>

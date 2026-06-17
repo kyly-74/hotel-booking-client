@@ -1,25 +1,22 @@
-
-
-// src/app/models/home.model.ts
-export interface HotelCard {
-    id: number;
-    name: string;
-    city: string;
-    imageUrl: string;
-    starRating?: number;
+export interface Hotel {
+  id: number;
+  name: string;
+  city: string;
+  imageUrl: string;
+  starRating: number;
+  minPrice: number;
 }
 
-export interface RoomCard {
-    id: number;
-    roomName: string;
-    image: string;
-    price: number;
-    hotelId: number;
-    hotelName: string;
+export interface HotRoom {
+  id: number;
+  roomName: string;
+  hotelName: string;
+  price: number;
+  image: string;
 }
 
 export interface HomeData {
-    popularCities: string[];
-    featuredHotels: HotelCard[];
-    hotRooms: RoomCard[];
+  popularCities: string[];
+  featuredHotels: Hotel[];
+  hotRooms: HotRoom[];
 }
