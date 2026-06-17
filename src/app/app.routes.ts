@@ -1,35 +1,68 @@
 import { Routes } from '@angular/router';
-import { Login } from './features/auth/login/login';
-import { Register } from './features/auth/register/register';
-import { HomeComponent } from './features/home/home.component';
-import { PaymentResult } from './features/payment/payment-result/payment-result';
-import { Checkoutpayment } from './features/payment/checkoutpayment/checkoutpayment';
 
 export const routes: Routes = [
   {
     path: '',
-    component: HomeComponent
+    redirectTo: 'home',
+    pathMatch: 'full'
   },
   {
     path: 'home',
-    component: HomeComponent
+    loadComponent: () =>
+      import('./features/home/home.component')
+        .then(m => m.HomeComponent)
   },
   {
     path: 'auth/login',
-    component: Login
+    loadComponent: () =>
+      import('./features/auth/login/login')
+        .then(m => m.Login)
   },
   {
     path: 'auth/register',
-    component: Register
+    loadComponent: () =>
+      import('./features/auth/register/register')
+        .then(m => m.Register)
   },
-  // Các đường dẫn thanh toán
-  { path: 'payment/success', component: PaymentResult },
-  { path: 'payment/failed', component: PaymentResult },
-  { path: 'test-payment', component: Checkoutpayment },
-
-  // Route xử lý đường dẫn không tồn tại (luôn để cuối cùng)
   {
-    path: '**',
-    redirectTo: 'auth/login'
-  }
+    path: 'search',
+    loadComponent: () =>
+      import('./pages/search-result/search-result')
+        .then(m => m.SearchResultComponent)
+  },
+
+{
+  path: 'hotel/:id',
+  loadComponent: () =>
+    import('./features/hotels/hotel-detail/hotel-detail')
+      .then(m => m.HotelDetailComponent)
+},
+  {
+    path: 'payment/success',
+    loadComponent: () =>
+      import('./features/payment/payment-result/payment-result')
+        .then(m => m.PaymentResult)
+  },
+  {
+    path: 'payment/failed',
+    loadComponent: () =>
+      import('./features/payment/payment-result/payment-result')
+        .then(m => m.PaymentResult)
+  },
+  {
+    path: 'test-payment',
+    loadComponent: () =>
+      import('./features/payment/checkoutpayment/checkoutpayment')
+        .then(m => m.Checkoutpayment)
+  },
+  // {
+  //   path: '**',
+  //   redirectTo: 'auth/login'
+  // },
+  {
+  path: 'checkout',
+  loadComponent: () =>
+    import('./pages/checkout/checkout')
+      .then(m => m.CheckoutComponent)
+},
 ];
