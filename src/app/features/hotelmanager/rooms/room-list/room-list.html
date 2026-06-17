@@ -1,0 +1,73 @@
+<!-- <div class="alert alert-warning mt-3">
+  <h5>🔍 Debug: Dữ liệu đang có trong biến rooms:</h5>
+  <pre>{{ rooms | json }}</pre>
+</div> -->
+
+
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="fw-bold text-secondary m-0">🏨 Quản lý danh sách phòng</h2>
+    <a routerLink="/hotelmanager/rooms/create" class="btn btn-primary d-flex align-items-center shadow-sm px-3 py-2">
+      <span class="me-1">➕</span> Thêm phòng mới
+    </a>
+  </div>
+
+  <div class="card shadow-sm border-0">
+    <div class="card-body p-0">
+      <div class="table-responsive">
+        <table class="table table-hover table-striped align-middle mb-0">
+          <!-- class="table-dark" -->
+          <thead >
+            <tr class="text-nowrap">
+              <th scope="col" class="text-center" style="width: 60px;">STT</th>
+              <th scope="col">Hình ảnh</th>
+              <th scope="col">Mã phòng</th>
+              <th scope="col">Loại phòng</th>
+              <th scope="col">Tầng</th>
+              <th scope="col">Giá phòng</th>
+              <th scope="col">Trạng thái</th>
+              <th scope="col" class="text-center" style="width: 180px;">Thao tác</th>
+            </tr>
+          </thead>
+        <tbody>
+  <tr *ngFor="let item of rooms; let i = index">
+    <td class="text-center fw-bold text-muted">{{ i + 1 }}</td>
+    <td>
+      
+      <img [src]="getRoomImageUrl(item.imageUrl)" alt="Room Image" style="width: 100px; height: 100px;">
+    </td>
+    <td class="fw-bold text-primary">{{ item.roomNumber }}</td>
+    
+    <td>{{ item.roomTypeName || 'Chưa phân loại' }}</td> 
+    
+    <td>Tầng {{ item.floor }}</td>
+    
+    <td class="text-danger fw-bold">{{ item.pricePerNight | number:'1.0-0' }} VNĐ</td>
+    
+    <td>
+  <span class="badge" [ngClass]="{
+    'bg-success-subtle text-success': item.status === 'Available',
+    'bg-warning-subtle text-warning': item.status === 'Occupied',
+    'bg-danger-subtle text-danger': item.status === 'Maintenance'
+  }">
+    <i class="bi bi-circle-fill me-1" style="font-size: 0.5rem;"></i>
+    {{ item.status === 'Available' ? 'Còn trống' : (item.status === 'Occupied' ? 'Đang có khách' : 'Bảo trì') }}
+  </span>
+</td>
+    <td class="text-center">
+      <div class="d-flex justify-content-center gap-2">
+        <a [routerLink]="['/hotelmanager/rooms/detail', item.id]" class="btn btn-sm btn-info text-white">
+      👁️ Xem
+    </a>
+        <a [routerLink]="['/hotelmanager/rooms/edit', item.id]" class="btn btn-sm btn-warning">✏️ Sửa</a>
+        <button type="button" class="btn btn-sm btn-danger" (click)="deleteRoom(item.id)">🗑️ Xóa</button>
+      </div>
+    </td>
+  </tr>
+</tbody>
+        </table>
+
+     
+    </div>
+  </div>
+</div>

@@ -1,0 +1,58 @@
+<div class="room-form-container">
+  <div class="room-form-card">
+    <h2>🏨 Thêm phòng mới</h2>
+
+    <form (ngSubmit)="onCreate()">
+
+       <div class="form-group mb-3">
+  <label class="fw-bold mb-1">Chọn ảnh </label>
+  <input type="file" (change)="onFileSelected($event)" class="form-control" accept="image/*">
+</div>
+
+      <div class="form-group mb-3">
+        <label class="fw-bold mb-1">Mã phòng</label>
+        <input type="text" [(ngModel)]="room.roomNumber" name="roomNumber" placeholder="Nhập mã phòng (Ví dụ: P101)" class="form-control" required>
+      </div>
+
+      <div class="form-group mb-3">
+        <label class="fw-bold mb-1">Loại phòng</label>
+        <select [(ngModel)]="room.roomTypeId" name="roomTypeId" class="form-select">
+          <option [value]="1">Phòng Đơn (Deluxe)</option>
+          <option [value]="2">Phòng Đôi (VIP)</option>
+          <option [value]="3">Phòng VIP (Suite)</option>
+        </select>
+      </div>
+
+      <div class="form-group mb-3">
+        <label class="fw-bold mb-1">Tầng</label>
+        <input type="number" [(ngModel)]="room.floor" name="floor" placeholder="Nhập số tầng (Ví dụ: 1, 2)" class="form-control" min="1" required>
+      </div>
+
+      <div class="form-group mb-3">
+  <label class="fw-bold mb-1">Giá phòng </label>
+  <input type="number" [(ngModel)]="room.pricePerNight" name="pricePerNight" 
+         placeholder="Ví dụ: 500000" class="form-control" required>
+</div>
+
+      <div class="form-group mb-4">
+        <label class="fw-bold mb-1">Trạng thái ban đầu</label>
+        <select [(ngModel)]="room.status" name="status" class="form-select">
+          <option value="Available">Còn trống (Available)</option>
+          <option value="Occupied">Đang có khách (Occupied)</option>
+          <option value="Maintenance">Bảo trì (Maintenance)</option>
+        </select>
+      </div>
+
+      <div class="button-group d-flex gap-2 mt-4">
+        <button type="submit" class="btn-save btn btn-primary fw-bold px-4">
+          💾 Lưu
+        </button>
+
+        <button type="button" class="btn-cancel btn btn-light border px-4" routerLink="/hotelmanager/rooms">
+          ❌ Hủy
+        </button>
+      </div>
+
+    </form>
+  </div>
+</div>

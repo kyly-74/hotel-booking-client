@@ -1,0 +1,40 @@
+<div class="page-wrapper">
+  <div class="container" *ngIf="room; else loading">
+    <div class="card shadow-lg border-0 rounded-4 p-4">
+      
+      <img [src]="getRoomImageUrl(room.imageUrl)" alt="Room Image" style="width: 100px; height: 100px;">
+      
+      <h3 class="mb-4 text-center fw-bold">Phòng: {{ room.roomNumber }}</h3>
+
+      <div class="info-grid">
+        <div class="info-card"><span class="label">Mã phòng</span><div class="value">{{ room.roomNumber }}</div></div>
+        <div class="info-card"><span class="label">Loại phòng</span><div class="value">{{ room.roomTypeName }}</div></div>
+        <div class="info-card"><span class="label">Tầng</span><div class="value">{{ room.floor }}</div></div>
+        <div class="info-card"><span class="label">Trạng thái</span>
+          <div class="value badge mt-1" [ngClass]="{
+            'bg-success': room.status === 'Available',
+            'bg-warning text-dark': room.status === 'Occupied',
+            'bg-danger': room.status === 'Maintenance'
+          }">{{ room.status }}</div>
+        </div>
+      </div>
+
+      <div class="info-card mt-3 text-center">
+        <span class="label">Giá mỗi đêm</span>
+        <div class="value text-primary fs-4">{{ room.pricePerNight | number:'1.0-0' }} VNĐ</div>
+      </div>
+
+      <div class="mt-4 d-flex justify-content-center gap-3">
+        <a routerLink="/hotelmanager/rooms" class="btn btn-outline-secondary">Quay lại</a>
+        <a [routerLink]="['/hotelmanager/rooms/edit', room.id]" class="btn btn-warning text-white">Chỉnh sửa</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #loading>
+  <div class="d-flex flex-column align-items-center justify-content-center min-vh-100">
+    <div class="spinner-border text-primary" role="status"></div>
+    <p class="mt-3 text-muted">Đang tải chi tiết phòng...</p>
+  </div>
+</ng-template>

@@ -1,0 +1,65 @@
+<!-- <div class="table-wrapper">
+  <pre style="background: #eee; padding: 10px;">{{ roomTypes | json }}</pre>
+
+  <table class="room-table">
+     </table>
+</div> -->
+
+
+<div class="room-list-container">
+  <header class="header">
+    <div class="title-group">
+      <h2>Danh sách Loại phòng</h2>
+      <p>
+        Hiện đang có <strong>{{ roomTypes.length }}</strong> loại phòng trong hệ thống.
+      </p>
+    </div>
+    <a routerLink="/hotelmanager/roomstype/create" class="btn-add">
+      + Thêm loại phòng mới
+    </a>
+  </header>
+
+  <div class="table-wrapper">
+    <table class="room-table">
+      <thead>
+        <tr>
+          <th style="width: 50px;">STT</th>
+          <th>Tên loại phòng</th>
+          <th>Số lượng</th>
+          <th>Sức chứa</th>
+          <th>Diện tích</th>
+          <th>Giá (VNĐ)</th>
+          <th>Thao tác</th>
+        </tr>
+      </thead>
+      <tbody>
+  <ng-container *ngIf="roomTypes && roomTypes.length > 0; else noData">
+    <tr *ngFor="let room of roomTypes; let i = index">
+      <td>{{ i + 1 }}</td>
+      <td><strong>{{ room.typeName }}</strong></td>
+      <td>{{ room.totalRooms || 0 }} phòng</td>
+      <td>{{ room.maxOccupancy }} người</td>
+      <td>{{ room.area }} m²</td>
+      <td>{{ room.pricePerNight | number:'1.0-0' }}</td>
+      <td>
+        <div class="action-group">
+          <button class="btn-edit" [routerLink]="['/hotelmanagement/roomstype/edit', room.id]">Sửa</button>
+          <button class="btn-delete" (click)="deleteRoom(room.id)">Xóa</button>
+        </div>
+      </td>
+    </tr>
+  </ng-container>
+
+  <ng-template #noData>
+    <tr>
+      <td colspan="7" class="empty-state">
+        Hiện chưa có loại phòng nào được tạo.
+      </td>
+    </tr>
+  </ng-template>
+</tbody>
+    </table>
+
+
+  </div>
+</div>

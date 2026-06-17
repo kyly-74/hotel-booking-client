@@ -1,0 +1,67 @@
+<div class="room-form-container">
+  <div class="room-form-card">
+    <h2>✏️ Cập nhật phòng</h2>
+
+    <form (ngSubmit)="onUpdate()">
+
+        <div class="form-group mb-3">
+  <label class="fw-bold mb-1">Hình ảnh phòng</label>
+  
+  <div class="mb-2" *ngIf="room.imageUrl && !selectedFile">
+    <!-- <img [src]="room.imageUrl" class="img-thumbnail" style="width: 200px; height: 150px; object-fit: cover;"> -->
+     <img [src]="previewImageUrl || ('http://localhost:5099' + room.imageUrl)" 
+     alt="Room Image" 
+     style="width: 200px; height: 150px; object-fit: cover;">
+    <button type="button" class="btn btn-sm btn-danger d-block mt-1" (click)="removeImage()">
+      ❌ Xóa ảnh hiện tại
+    </button>
+  </div>
+
+  <input type="file" (change)="onFileSelected($event)" class="form-control" accept="image/*">
+  
+  <div class="mt-2" *ngIf="selectedFile">
+    <p class="text-primary small">Đã chọn ảnh mới: {{ selectedFile.name }}</p>
+  </div>
+</div>
+
+      <div class="form-group mb-3">
+        <label class="fw-bold mb-1">Mã phòng</label>
+        <input type="text" [(ngModel)]="room.roomNumber" name="roomNumber" class="form-control" required>
+      </div>
+
+      <div class="form-group mb-3">
+        <label class="fw-bold mb-1">Loại phòng (Tên hiển thị)</label>
+        <input type="text" [(ngModel)]="room.roomTypeName" name="roomTypeName" class="form-control" readonly style="background-color: #e9ecef; cursor: not-allowed;">
+      </div>
+
+      <div class="form-group mb-3">
+        <label class="fw-bold mb-1">Tầng</label>
+        <input type="number" [(ngModel)]="room.floor" name="floor" class="form-control" min="1">
+      </div>
+
+      <div class="form-group mb-3">
+        <label class="fw-bold mb-1">Giá (VNĐ / Đêm)</label>
+        <input type="number" [(ngModel)]="room.pricePerNight" name="pricePerNight" class="form-control" readonly style="background-color: #e9ecef; cursor: not-allowed;">
+      </div>
+
+      <div class="form-group mb-4">
+        <label class="fw-bold mb-1">Trạng thái</label>
+        <select [(ngModel)]="room.status" name="status" class="form-select">
+          <option value="Available">Còn trống (Available)</option>
+          <option value="Occupied">Đang có khách (Occupied)</option>
+          <option value="Maintenance">Bảo trì (Maintenance)</option>
+        </select>
+      </div>
+
+      <div class="button-group d-flex gap-2">
+        <button type="submit" class="btn-update btn btn-warning fw-bold text-dark px-4">
+          Cập nhật
+        </button>
+        <button type="button" class="btn-back btn btn-light border px-4" (click)="goBack()">
+          Quay lại
+        </button>
+      </div>
+
+    </form>
+  </div>
+</div>
