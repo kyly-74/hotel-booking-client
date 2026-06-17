@@ -6,6 +6,9 @@ import { Router } from '@angular/router';
 import { HomeService } from '../../core/services/home.service';
 import { HomeData } from '../../models/home.model';
 
+
+
+
 @Component({
   selector: 'app-home',
   standalone: true,

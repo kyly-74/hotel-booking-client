@@ -1,0 +1,87 @@
+.form-container {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 24px;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e2e8f0;
+}
+
+h2 {
+  margin-top: 0;
+  margin-bottom: 24px;
+  color: #1e293b;
+  font-size: 1.25rem;
+}
+
+.form-group {
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: #475569;
+  font-size: 0.9rem;
+}
+
+.form-group input, 
+.form-group textarea {
+  padding: 10px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+.form-group input:focus, 
+.form-group textarea:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+/* Bố cục hàng (chia 3 cột cho Sức chứa, Diện tích, Số lượng) */
+.row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.actions {
+  margin-top: 24px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.btn-cancel {
+  padding: 10px 20px;
+  border-radius: 6px;
+  border: 1px solid #cbd5e1;
+  background: #f1f5f9;
+  color: #475569;
+  cursor: pointer;
+}
+
+.btn-save {
+  padding: 10px 20px;
+  border-radius: 6px;
+  border: none;
+  background: #2563eb;
+  color: white;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.btn-save:disabled {
+  background: #94a3b8;
+  cursor: not-allowed;
+}
+
+.btn-save:hover:not(:disabled) {
+  background: #1d4ed8;
+}

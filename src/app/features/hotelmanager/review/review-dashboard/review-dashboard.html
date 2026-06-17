@@ -1,0 +1,29 @@
+<div class="dashboard-container">
+  <h2>Quản lý đánh giá khách sạn</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Khách hàng</th>
+        <th>Đánh giá</th>
+        <th>Bình luận</th>
+        <th>Phản hồi</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let review of reviews">
+        <td>{{ review.customerName }}</td>
+        <td>{{ review.rating }} ⭐</td>
+        <td>{{ review.comment }}</td>
+        <td>
+          <div *ngIf="review.reply" class="existing-reply">
+            <strong>Đã trả lời:</strong> {{ review.reply }}
+          </div>
+          <div *ngIf="!review.reply">
+            <textarea #replyInput placeholder="Nhập phản hồi..."></textarea>
+            <button (click)="submitReply(review, replyInput.value)">Gửi</button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

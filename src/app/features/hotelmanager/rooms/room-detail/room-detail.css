@@ -1,0 +1,40 @@
+/* Làm cho trang chiếm trọn màn hình và căn giữa */
+body, html { height: 100%; }
+.page-wrapper {
+  display: flex;
+  justify-content: center; /* Căn giữa ngang */
+  align-items: center;     /* Căn giữa dọc */
+  min-height: 80vh;
+  padding: 20px;
+}
+
+.container { max-width: 600px; width: 100%; }
+
+/* Style cho các khối Label (Giống danh thiếp) */
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.info-card {
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 12px;
+  border: 1px solid #e9ecef;
+}
+
+.label {
+  display: block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: #6c757d;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.value {
+  font-size: 1rem;
+  font-weight: 600;
+  color:#212529;
+}

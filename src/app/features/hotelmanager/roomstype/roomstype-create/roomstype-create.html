@@ -1,0 +1,50 @@
+<div class="form-container">
+  <h2>Thêm loại phòng mới</h2>
+  <form (ngSubmit)="onSubmit(roomForm)" #roomForm="ngForm">
+
+    <div class="form-group">
+  <label>Chọn khách sạn</label>
+  <select name="hotelId" [(ngModel)]="roomType.hotelId" required class="form-control">
+    <option value="" disabled selected>-- Vui lòng chọn khách sạn --</option>
+    <option value="1">Khách sạn A</option>
+    <option value="2">Khách sạn B</option>
+    </select>
+</div>
+    
+    <div class="form-group">
+      <label>Tên loại phòng</label>
+      <input name="typeName" [(ngModel)]="roomType.typeName" type="text" placeholder="Ví dụ: Phòng Deluxe" required>
+    </div>
+
+    <div class="form-group">
+      <label>Mô tả</label>
+      <textarea name="description" [(ngModel)]="roomType.description"></textarea>
+    </div>
+
+    <div class="row">
+      <div class="form-group">
+        <label>Sức chứa (người)</label>
+        <input name="maxOccupancy" [(ngModel)]="roomType.maxOccupancy" type="number" required>
+      </div>
+      <div class="form-group">
+        <label>Diện tích (m²)</label>
+        <input name="area" [(ngModel)]="roomType.area" type="number" required>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Số lượng phòng</label>
+      <input name="totalRooms" [(ngModel)]="roomType.totalRooms" type="number" min="1" required>
+    </div>
+
+    <div class="form-group">
+      <label>Giá mỗi đêm (VNĐ)</label>
+      <input name="pricePerNight" [(ngModel)]="roomType.pricePerNight" type="number" required>
+    </div>
+
+    <div class="actions">
+      <button type="button" routerLink="/hotelmanager/roomstype" class="btn-cancel">Hủy</button>
+      <button type="submit" [disabled]="roomForm.invalid" class="btn-save">Lưu</button>
+    </div>
+  </form>
+</div>

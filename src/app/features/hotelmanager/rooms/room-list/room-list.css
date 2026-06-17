@@ -1,0 +1,194 @@
+/* Bố cục tổng quan
+.container {
+  max-width: 1200px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h2 {
+  color: #2c3e50;
+  font-weight: 700;
+  position: relative;
+}
+
+/* Thẻ Card bọc ngoài bảng */
+/* .card {
+  border: none;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  background: #ffffff;
+} */
+
+/* Cấu trúc Bảng (Table) */
+/* .table {
+  margin-bottom: 0;
+} */
+
+/* .table thead {
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  color: #ffffff;
+} */
+
+/* .table th {
+  font-weight: 600;
+  padding: 16px;
+  border: none;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+}
+
+.table td {
+  padding: 16px;
+  vertical-align: middle;
+  color: #4a5568;
+  border-bottom: 1px solid #edf2f7;
+}
+
+.table-hover tbody tr:hover {
+  background-color: #f8fafc;
+  /* transform: scale(1.002); 
+  transition: all 0.2s ease;
+} 
+
+/* Hình ảnh phòng */
+/* .room-img {
+  width: 80px;
+  height: 55px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+} */
+
+/* Định dạng Badge Trạng thái */
+/* .badge {
+  padding: 6px 12px;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+
+.bg-success {
+  background-color: #e6fffa !important;
+  color: #319795 !important;
+}
+
+.bg-warning {
+  background-color: #feebc8 !important;
+  color: #dd6b20 !important;
+}
+
+.bg-danger {
+  background-color: #fed7d7 !important;
+  color: #e53e3e !important;
+} */
+
+/* Nút bấm hành động */
+/* .btn {
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-primary {
+  background: #2b6cb0;
+  border: none;
+}
+
+.btn-primary:hover {
+  background: #2c5282;
+  box-shadow: 0 4px 12px rgba(43, 108, 176, 0.3);
+}
+
+.btn-warning {
+  background-color: #ecc94b;
+  border: none;
+  color: #2d3748;
+}
+
+.btn-warning:hover {
+  background-color: #d69e2e;
+}
+
+.btn-danger {
+  background-color: #e53e3e;
+  border: none;
+}
+
+.btn-danger:hover {
+  background-color: #c53030;
+}  */
+
+
+
+/* Container căn giữa và tạo không gian */
+.container {
+  max-width: 1200px;
+  margin: 2rem auto;
+}
+
+/* Card hiện đại: nhẹ nhàng và bo góc */
+.card {
+  border: 1px solid #eef2f7;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+}
+
+/* Header bảng: sạch sẽ hơn */
+.table thead {
+  background-color: #f8fafc;
+}
+
+.table thead th {
+  color: #64748b;
+  font-weight: 600;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  padding: 20px 16px;
+  border-bottom: 2px solid #f1f5f9;
+}
+
+/* Row bảng: tạo khoảng cách thoáng */
+.table tbody td {
+  padding: 20px 16px;
+  color: #334155;
+  font-size: 0.9rem;
+}
+
+/* Badge trạng thái: Bo tròn và tinh tế */
+.badge {
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+/* Hiệu ứng Nút bấm: Màu sắc dịu mắt */
+.btn-sm {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.btn-sm:hover {
+  transform: translateY(-2px);
+}
+
+/* Màu riêng cho nút hành động */
+.btn-info { background: #e0f2fe; color: #0284c7; border: none; }
+.btn-warning { background: #fef3c7; color: #d97706; border: none; }
+.btn-danger { background: #fee2e2; color: #dc2626; border: none; }
+
+/* Ảnh phòng: bo góc đẹp hơn */
+.room-img {
+  width: 90px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+}
