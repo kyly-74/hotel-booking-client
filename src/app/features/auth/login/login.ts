@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { Auth } from '../../../core/services/auth.service';
 import { environment } from '../../../../environments/environment';
 import { RouterModule } from '@angular/router';
+import { Router } from '@angular/router'; // 🌟 Thêm import này
 declare var google: any; // Khai báo biến toàn cục để dùng script index.html
 
 @Component({
@@ -22,6 +23,7 @@ export class Login implements OnInit, AfterViewInit {
     private authService: Auth,
     private http: HttpClient,
     private fb: FormBuilder,
+    private router: Router, // 🌟 Inject Router vào đây
     @Inject(PLATFORM_ID) private platformId: Object
   ) {}
 
@@ -76,7 +78,11 @@ export class Login implements OnInit, AfterViewInit {
       return;
     }
     this.authService.login(this.loginForm.value).subscribe({
-      next: (res: any) => this.authService.saveToken(res.token),
+      next: (res: any) => {
+        this.authService.saveToken(res.token);
+        // 🌟 Ép chuyển trang thẳng vào phân hệ admin
+        this.router.navigate(['/admin/users']);
+      },
       error: (err: any) => alert('Sai tài khoản hoặc mật khẩu!')
     });
   }

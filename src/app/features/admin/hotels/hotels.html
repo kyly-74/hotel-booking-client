@@ -1,0 +1,35 @@
+<h2>Danh sách khách sạn</h2>
+
+<table *ngIf="hotels.length > 0">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Tên khách sạn</th>
+      <th>Manager</th>
+      <th>Địa chỉ</th>
+      <th>Thành phố</th>
+      <th>Phòng</th>
+      <th>Booking</th>
+      <th>Trạng thái</th>
+      <th>Ngày tạo</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let hotel of hotels">
+      <td>{{ hotel.id }}</td>
+      <td>{{ hotel.name }}</td>
+      <td>{{ hotel.managerName }}</td>
+      <td>{{ hotel.address }}</td>
+      <td>{{ hotel.city }}</td>
+      <td>{{ hotel.totalRooms }}</td>
+      <td>{{ hotel.totalBookings }}</td>
+      <td>
+        {{hotel.isActive ? 'Active' : 'Inactive'}}
+      </td>
+      <td>
+        {{hotel.createdAt | date:'dd/MM/yyyy'}}
+      </td>
+    </tr>
+  </tbody>
+</table>
