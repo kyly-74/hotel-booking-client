@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
-import { Login } from './features/auth/login/login'; 
-import { Register } from './features/auth/register/register'; 
+import { Login } from './features/auth/login/login';
+import { Register } from './features/auth/register/register';
+import { HomeComponent } from './features/home/home.component';
 import { PaymentResult } from './features/payment/payment-result/payment-result';
 import { Checkoutpayment } from './features/payment/checkoutpayment/checkoutpayment';
 
@@ -14,52 +15,56 @@ import { RoomTypeCreateComponent } from './features/hotelmanager/roomstype/rooms
 
 
 export const routes: Routes = [
- 
 
+  // {
+  //   path: '',
+  //   component: HomeComponent
+  // },
+  // {
+  //   path: 'home',
+  //   component: HomeComponent
+  // },
+  // {
 
-{
-    path: 'auth/login',
-    component: Login
-  },
+  //   path: 'auth/login',
+  //   component: Login
+  // },
 
   {
     path: 'auth/register',
-    component: Register 
+    component: Register
   },
 
 
 
  
-      // Sửa hết các path con bằng cách bỏ tiền tố 'hotelmanager/'
-      { path: 'hotelmanager/rooms', component: RoomListComponent },
-      { path: 'hotelmanager/rooms/create', component: RoomCreateComponent },
-      { path: 'hotelmanager/rooms/edit/:id', component: RoomEditComponent },
-      { path: 'hotelmanager/rooms/detail/:id', component: RoomDetailComponent },
+//       // Sửa hết các path con bằng cách bỏ tiền tố 'hotelmanager/'
+//       { path: 'hotelmanager/rooms', component: RoomListComponent },
+//       { path: 'hotelmanager/rooms/create', component: RoomCreateComponent },
+//       { path: 'hotelmanager/rooms/edit/:id', component: RoomEditComponent },
+//       { path: 'hotelmanager/rooms/detail/:id', component: RoomDetailComponent },
     
 
-{ path: 'hotelmanager/roomstype', component: RoomTypeList},
-{ path: 'hotelmanager/roomstype/create', component: RoomTypeCreateComponent},
+// { path: 'hotelmanager/roomstype', component: RoomTypeList},
+// { path: 'hotelmanager/roomstype/create', component: RoomTypeCreateComponent},
 
 
 
-  {
-    path: '',
-    redirectTo: 'auth/login',
-    pathMatch: 'full'
-  },
+//   {
+//     path: '',
+//     redirectTo: 'auth/login',
+//     pathMatch: 'full'
+//   },
   //  ĐƯA CÁC ĐƯỜNG DẪN THANH TOÁN LÊN TRÊN `**`
+
   { path: 'payment/success', component: PaymentResult },
-  { path: 'payment/failed',  component: PaymentResult },
+  { path: 'payment/failed', component: PaymentResult },
   { path: 'test-payment', component: Checkoutpayment },
 
-  // 🔽 LUÔN LUÔN ĐỂ ROUTE '**' Ở DÒNG CUỐI CÙNG CỦA MẢNG
+  // Route xử lý đường dẫn không tồn tại (luôn để cuối cùng)
   {
     path: '**',
-    redirectTo: 'auth/login' 
+    redirectTo: 'auth/login'
   }
 
-
- 
-
-  
 ];
