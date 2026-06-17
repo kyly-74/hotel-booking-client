@@ -1,24 +1,27 @@
 import { Routes } from '@angular/router';
-// Import cả 2 component Đăng nhập và Đăng ký (bạn kiểm tra lại đường dẫn chính xác trong dự án nhé)
-import { Login } from './features/auth/login/login'; 
-import { Register } from './features/auth/register/register'; 
+import { Login } from './features/auth/login/login';
+import { Register } from './features/auth/register/register';
+import { HomeComponent } from './features/home/home.component';
 
 export const routes: Routes = [
+  {
+    path: '',
+    component: HomeComponent
+  },
+  {
+    path: 'home',
+    component: HomeComponent
+  },
   {
     path: 'auth/login',
     component: Login
   },
   {
     path: 'auth/register',
-    component: Register // <-- Bắt buộc phải khai báo đường dẫn này thì routerLink mới chạy được
-  },
-  {
-    path: '',
-    redirectTo: 'auth/login',
-    pathMatch: 'full'
+    component: Register
   },
   {
     path: '**',
-    redirectTo: 'auth/login' // Tất cả các đường dẫn lạ (bao gồm cả lỗi gõ sai) sẽ bị đá về login
+    redirectTo: ''
   }
 ];
