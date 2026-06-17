@@ -1,0 +1,95 @@
+.reviews-container {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  border-left: 4px solid #3498db;
+  padding-left: 15px;
+}
+
+.review-card {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  border: 1px solid #edf2f7; /* Đường viền mỏng làm card nổi bật */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.review-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.customer-name {
+  font-weight: 700;
+  color: #2d3748;
+  font-size: 1.1rem;
+}
+
+.review-date {
+  color: #a0aec0;
+  font-size: 0.85rem;
+}
+
+.rating {
+  color: #f6ad55; /* Màu vàng cam chuyên nghiệp */
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+.rating-text {
+  font-size: 0.9rem;
+  color: #718096;
+  margin-left: 5px;
+}
+
+.comment {
+  color: #4a5568;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 40px;
+  background: #f7fafc;
+  border: 2px dashed #e2e8f0;
+  border-radius: 10px;
+  color: #718096;
+}
+
+.admin-reply {
+  background-color: #f1f8ff; /* Màu xanh nhạt nhẹ */
+  border-left: 4px solid #3498db;
+  padding: 15px;
+  margin-top: 15px;
+  border-radius: 0 8px 8px 0;
+}
+
+.reply-label {
+  margin: 0 0 5px 0;
+  color: #2c3e50;
+  font-size: 0.9em;
+}
+
+.reply-content {
+  margin: 0;
+  color: #34495e;
+  font-style: italic;
+}
+
+.reply-date {
+  display: block;
+  font-size: 0.75em;
+  color: #7f8c8d;
+  margin-top: 5px;
+}

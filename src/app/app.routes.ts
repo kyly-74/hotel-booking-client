@@ -11,24 +11,26 @@ import { RoomEditComponent } from './features/hotelmanager/rooms/room-edit/room-
 import { RoomDetailComponent } from './features/hotelmanager/rooms/room-detail/room-detail';
 import {  RoomTypeList } from './features/hotelmanager/roomstype/roomstype-list/roomstype-list';
 import { RoomTypeCreateComponent } from './features/hotelmanager/roomstype/roomstype-create/roomstype-create';
-
+import { ReviewDashboardComponent } from './features/hotelmanager/review/review-dashboard/review-dashboard';
+import { ReviewListComponent } from './features/hotelmanager/review/review-list/review-list';
+import { ReviewFormComponent } from './features/hotelmanager/review/review-form/review-form';
 
 
 export const routes: Routes = [
 
-  // {
-  //   path: '',
-  //   component: HomeComponent
-  // },
-  // {
-  //   path: 'home',
-  //   component: HomeComponent
-  // },
-  // {
+  {
+    path: '',
+    component: HomeComponent
+  },
+  {
+    path: 'home',
+    component: HomeComponent
+  },
+  {
 
-  //   path: 'auth/login',
-  //   component: Login
-  // },
+    path: 'auth/login',
+    component: Login
+  },
 
   {
     path: 'auth/register',
@@ -38,15 +40,21 @@ export const routes: Routes = [
 
 
  
-//       // Sửa hết các path con bằng cách bỏ tiền tố 'hotelmanager/'
-//       { path: 'hotelmanager/rooms', component: RoomListComponent },
-//       { path: 'hotelmanager/rooms/create', component: RoomCreateComponent },
-//       { path: 'hotelmanager/rooms/edit/:id', component: RoomEditComponent },
-//       { path: 'hotelmanager/rooms/detail/:id', component: RoomDetailComponent },
+      // Sửa hết các path con bằng cách bỏ tiền tố 'hotelmanager/'
+      { path: 'hotelmanager/rooms', component: RoomListComponent },
+      { path: 'hotelmanager/rooms/create', component: RoomCreateComponent },
+      { path: 'hotelmanager/rooms/edit/:id', component: RoomEditComponent },
+      { path: 'hotelmanager/rooms/detail/:id', component: RoomDetailComponent },
     
 
-// { path: 'hotelmanager/roomstype', component: RoomTypeList},
-// { path: 'hotelmanager/roomstype/create', component: RoomTypeCreateComponent},
+{ path: 'hotelmanager/roomstype', component: RoomTypeList},
+{ path: 'hotelmanager/roomstype/create', component: RoomTypeCreateComponent},
+
+
+ { path: 'hotelmanager/reviews/list/:hotelId', component: ReviewListComponent },
+ { path: 'hotelmanager/reviews/form', component: ReviewFormComponent },
+{ path: 'hotelmanager/reviews/dashboard', component: ReviewDashboardComponent },
+
 
 
 

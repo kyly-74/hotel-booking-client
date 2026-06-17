@@ -9,9 +9,10 @@
   
   <div class="mb-2" *ngIf="room.imageUrl && !selectedFile">
     <!-- <img [src]="room.imageUrl" class="img-thumbnail" style="width: 200px; height: 150px; object-fit: cover;"> -->
-     <img [src]="previewImageUrl || ('http://localhost:5099' + room.imageUrl)" 
-     alt="Room Image" 
-     style="width: 200px; height: 150px; object-fit: cover;">
+    <img
+  *ngIf="previewImageUrl || room.imageUrl"
+  [src]="previewImageUrl || getRoomImageUrl(room.imageUrl)"
+  class="preview-img">
     <button type="button" class="btn btn-sm btn-danger d-block mt-1" (click)="removeImage()">
       ❌ Xóa ảnh hiện tại
     </button>

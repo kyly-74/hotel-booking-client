@@ -30,13 +30,29 @@ export class RoomCreateComponent implements OnInit {
     private router: Router
   ) { }
 
+
+previewImageUrl: string | null = null;
+
+onFileSelected(event: any): void {
+  const file = event.target.files[0];
+
+  if (file) {
+    this.selectedFile = file;
+
+    const reader = new FileReader();
+
+    reader.onload = (e: ProgressEvent<FileReader>) => {
+      this.previewImageUrl = e.target?.result as string;
+    };
+
+    reader.readAsDataURL(file);
+  }
+}
+
+
   ngOnInit(): void {}
 
-  onFileSelected(event: any): void {
-    if (event.target.files.length > 0) {
-      this.selectedFile = event.target.files[0];
-    }
-  }
+ 
 
   onCreate(): void {
     if (!this.room.roomNumber) {
@@ -57,8 +73,22 @@ export class RoomCreateComponent implements OnInit {
 
     this.apiService.createRoomWithImage(formData).subscribe({
       next: (res: any) => {
-        alert('Thêm phòng mới thành công! 🎉');
-        this.goBack();
+         console.log("CREATE RESPONSE:", res);
+
+  alert('Thêm phòng mới thành công! 🎉');
+
+  this.selectedFile = null;
+  this.previewImageUrl = null;
+  this.room = {
+    roomNumber: '',
+    roomTypeId: 1,
+    status: 'Available',
+    floor: 1,
+    pricePerNight: 0,
+    imageUrl: ''
+  };
+
+  this.goBack();
       },
       error: (err: any) => {
         console.error('Lỗi API:', err);

@@ -30,12 +30,16 @@
             </tr>
           </thead>
         <tbody>
+
+
+
   <tr *ngFor="let item of rooms; let i = index">
     <td class="text-center fw-bold text-muted">{{ i + 1 }}</td>
     <td>
       
-      <img [src]="getRoomImageUrl(item.imageUrl)" alt="Room Image" style="width: 100px; height: 100px;">
-    </td>
+    <img 
+  [src]="getRoomImageUrl(item.imageUrl)" 
+  style="width: 100px; height: 100px; object-fit: cover; border-radius: 10px; border: 1px solid #ddd;">
     <td class="fw-bold text-primary">{{ item.roomNumber }}</td>
     
     <td>{{ item.roomTypeName || 'Chưa phân loại' }}</td> 

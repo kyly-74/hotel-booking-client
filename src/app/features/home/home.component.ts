@@ -4,6 +4,9 @@ import { FormsModule } from '@angular/forms';
 import { HomeService } from '../../services/home.service';
 import { HomeData } from '../../models/home.model'; // Đảm bảo import đúng đường dẫn
 
+
+
+
 @Component({
   selector: 'app-home',
   standalone: true,

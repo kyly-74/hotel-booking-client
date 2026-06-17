@@ -89,6 +89,8 @@ export class RoomEditComponent implements OnInit {
   removeImage(): void {
     this.room.imageUrl = '';
     this.isImageRemoved = true;
+     this.selectedFile = null;
+  this.previewImageUrl = null;
   }
 
   onUpdate(): void {
@@ -104,9 +106,9 @@ export class RoomEditComponent implements OnInit {
   formData.append('Status', String(this.room.status));
   formData.append('Floor', String(this.room.floor));
   
-  // 🌟 THÊM DÒNG NÀY: Gửi đường dẫn ảnh hiện tại lên
-  // Nếu ảnh đã bị xóa (isImageRemoved = true), gửi chuỗi rỗng hoặc giá trị null tùy logic backend
+ if (!this.selectedFile) {
   formData.append('ImageUrl', this.isImageRemoved ? '' : (this.room.imageUrl || ''));
+}
 
   formData.append('IsImageRemoved', String(this.isImageRemoved));
 
@@ -133,6 +135,14 @@ console.log("--- KẾT THÚC KIỂM TRA FORMDATA ---");
       alert('Cập nhật thất bại, vui lòng kiểm tra lại!');
     }
   });
+}
+
+
+getRoomImageUrl(imageUrl: string | null | undefined): string {
+  if (!imageUrl) return '';
+  return imageUrl.startsWith('http')
+    ? imageUrl
+    : 'http://localhost:5099' + imageUrl;
 }
 
   goBack(): void {

@@ -1,23 +1,19 @@
-export interface ReviewDto {
+export interface ReviewRead {
   id: number;
-  bookingId: number;
-  customerId: number;
+  rating: number;
+  comment: string | null;
+  createdAt: Date;
   customerName: string;
-  hotelId: number;
-  rating: number;
-  comment?: string;
-  reply?: string;
-  createdAt: string; // Trong TS, DateTime từ Backend về sẽ thành chuỗi string
+  reply: string | null;
+  repliedAt: Date | null;
 }
 
-export interface ReviewCreateDto {
+export interface ReviewCreate {
   bookingId: number;
-  hotelId: number;
   rating: number;
-  comment?: string;
+  comment: string | null;
 }
 
-export interface ReviewReplyDto {
-  reviewId: number;
+export interface ReviewReply {
   reply: string;
 }

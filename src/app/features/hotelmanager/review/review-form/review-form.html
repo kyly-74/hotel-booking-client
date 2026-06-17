@@ -1,0 +1,20 @@
+<form [formGroup]="reviewForm" (ngSubmit)="onSubmit()" class="review-form">
+  <div class="form-group">
+    <label>Số sao:</label>
+    <select formControlName="rating">
+      <option value="5">5 Sao</option>
+      <option value="4">4 Sao</option>
+      <option value="3">3 Sao</option>
+      <option value="2">2 Sao</option>
+      <option value="1">1 Sao</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <textarea formControlName="comment" placeholder="Chia sẻ cảm nhận của bạn về khách sạn..."></textarea>
+  </div>
+
+  <button type="submit" [disabled]="reviewForm.invalid || isSubmitting">
+    {{ isSubmitting ? 'Đang gửi...' : 'Gửi đánh giá' }}
+  </button>
+</form>

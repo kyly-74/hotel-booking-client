@@ -51,15 +51,16 @@ ngOnInit(): void {
  // Sửa lại hàm này trong cả room-list.ts và room-detail.ts
 // Trong file room-list.ts
 getRoomImageUrl(imageUrl: string | null | undefined): string {
-  // Kiểm tra nếu imageUrl bị null, undefined hoặc là chuỗi rỗng
-  if (!imageUrl || imageUrl.trim() === '') {
-    
-    return ''; 
+  if (!imageUrl) {
+    return 'assets/no-image.png';
   }
-  
-  // Nếu có ảnh, trả về đường dẫn đầy đủ
-  return 'http://localhost:5099' + imageUrl;
+
+  return imageUrl.startsWith('http')
+    ? imageUrl
+    : 'http://localhost:5099' + imageUrl;
 }
+
+  
   deleteRoom(id: number): void {
     if (confirm('Bạn có chắc chắn muốn xóa phòng này không?')) {
       this.api.deleteRoom(id).subscribe({

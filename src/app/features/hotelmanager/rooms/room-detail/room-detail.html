@@ -2,7 +2,10 @@
   <div class="container" *ngIf="room; else loading">
     <div class="card shadow-lg border-0 rounded-4 p-4">
       
-      <img [src]="getRoomImageUrl(room.imageUrl)" alt="Room Image" style="width: 100px; height: 100px;">
+    <img 
+  *ngIf="room"
+  [src]="getRoomImageUrl(room.imageUrl)"
+ alt="Room Image" style="width: 100px; height: 100px;">
       
       <h3 class="mb-4 text-center fw-bold">Phòng: {{ room.roomNumber }}</h3>
 
