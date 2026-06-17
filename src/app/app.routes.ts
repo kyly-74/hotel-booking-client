@@ -9,10 +9,15 @@ import { RoomListComponent } from './features/hotelmanager/rooms/room-list/room-
 import { RoomCreateComponent } from './features/hotelmanager/rooms/room-create/room-create';
 import { RoomEditComponent } from './features/hotelmanager/rooms/room-edit/room-edit';
 import { RoomDetailComponent } from './features/hotelmanager/rooms/room-detail/room-detail';
-import {  RoomTypeList } from './features/hotelmanager/roomstype/roomstype-list/roomstype-list';
+import { RoomTypeList } from './features/hotelmanager/roomstype/roomstype-list/roomstype-list';
 import { RoomTypeCreateComponent } from './features/hotelmanager/roomstype/roomstype-create/roomstype-create';
 
 
+//---------------ADMIN---------------
+import { adminGuard } from './core/guards/admin-guard';
+import { Users } from './features/admin/users/users';
+import { Hotels } from './features/admin/hotels/hotels';
+import { Revenue } from './features/admin/revenue/revenue';
 
 export const routes: Routes = [
 
@@ -35,36 +40,42 @@ export const routes: Routes = [
     component: Register
   },
 
+  //       // Sửa hết các path con bằng cách bỏ tiền tố 'hotelmanager/'
+  //       { path: 'hotelmanager/rooms', component: RoomListComponent },
+  //       { path: 'hotelmanager/rooms/create', component: RoomCreateComponent },
+  //       { path: 'hotelmanager/rooms/edit/:id', component: RoomEditComponent },
+  //       { path: 'hotelmanager/rooms/detail/:id', component: RoomDetailComponent },
 
 
- 
-//       // Sửa hết các path con bằng cách bỏ tiền tố 'hotelmanager/'
-//       { path: 'hotelmanager/rooms', component: RoomListComponent },
-//       { path: 'hotelmanager/rooms/create', component: RoomCreateComponent },
-//       { path: 'hotelmanager/rooms/edit/:id', component: RoomEditComponent },
-//       { path: 'hotelmanager/rooms/detail/:id', component: RoomDetailComponent },
-    
-
-// { path: 'hotelmanager/roomstype', component: RoomTypeList},
-// { path: 'hotelmanager/roomstype/create', component: RoomTypeCreateComponent},
+  // { path: 'hotelmanager/roomstype', component: RoomTypeList},
+  // { path: 'hotelmanager/roomstype/create', component: RoomTypeCreateComponent},
 
 
-
-//   {
-//     path: '',
-//     redirectTo: 'auth/login',
-//     pathMatch: 'full'
-//   },
+  //   {
+  //     path: '',
+  //     redirectTo: 'auth/login',
+  //     pathMatch: 'full'
+  //   },
   //  ĐƯA CÁC ĐƯỜNG DẪN THANH TOÁN LÊN TRÊN `**`
 
   { path: 'payment/success', component: PaymentResult },
   { path: 'payment/failed', component: PaymentResult },
   { path: 'test-payment', component: Checkoutpayment },
 
+  //---------------ADMIN---------------
+  {
+    path: 'admin',
+    canActivate: [adminGuard],
+    children: [
+      { path: 'users', component: Users },
+      { path: 'hotels', component: Hotels },
+      { path: 'revenue', component: Revenue }
+    ]
+  },
+
   // Route xử lý đường dẫn không tồn tại (luôn để cuối cùng)
   {
     path: '**',
-    redirectTo: 'auth/login'
-  }
-
+    redirectTo: 'auth/login' // Tất cả các đường dẫn lạ (bao gồm cả lỗi gõ sai) sẽ bị đá về login
+  },
 ];

@@ -18,7 +18,7 @@ export class Auth {
   constructor(
     private http: HttpClient,
     private router: Router,
-  ) {}
+  ) { }
 
   private hasToken(): boolean {
     return !!localStorage.getItem('token');
@@ -39,11 +39,11 @@ export class Auth {
   // ─── Đăng nhập bằng Google ───────────────────────────────────────
   // Gửi idToken Google nhận được lên API backend để verify
 
-loginWithGoogle(idToken: string): Observable<any> {
-  return this.http.post(`${environment.apiUrl}/auth/google-login`, {
-    IdToken: idToken   // ← chữ I hoa
-  });
-}
+  loginWithGoogle(idToken: string): Observable<any> {
+    return this.http.post(`${environment.apiUrl}/auth/google-login`, {
+      IdToken: idToken   // ← chữ I hoa
+    });
+  }
 
   // ─── Lưu token khi đăng nhập thành công (cả thường & Google) ─────
 

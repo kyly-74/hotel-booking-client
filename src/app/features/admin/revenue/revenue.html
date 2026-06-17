@@ -1,0 +1,43 @@
+<h2>Dashboard doanh thu</h2>
+
+<div *ngIf="loading">Đang tải...</div>
+
+<div *ngIf="report">
+    <h3>Tổng doanh thu: {{report.totalRevenue | number}}</h3>
+    <h3>Tăng trưởng: {{report.growthRate}} %</h3>
+    <hr>
+
+    <h3>Doanh thu theo thời gian</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Kỳ</th>
+                <th>Doanh thu</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of report.revenueDetails">
+                <td>{{item.label}}</td>
+                <td>{{item.revenue | number}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <hr>
+
+    <h3>Theo khách sạn</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Hotel</th>
+                <th>Revenue</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let h of report.hotelRevenues">
+                <td>{{h.hotelName}}</td>
+                <td>{{h.revenue | number}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
