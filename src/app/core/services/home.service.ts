@@ -9,7 +9,7 @@ import { HomeData } from '../../models/home.model';
 })
 export class HomeService {
   private http = inject(HttpClient);
-  private apiUrl = 'http://localhost:5099/api/Home';
+  private apiUrl = 'https://localhost:5099/api/Home/featured-hotels';
 
   private cache: HomeData | null = null;
 

@@ -1,3 +1,8 @@
+<p>Loading: {{ loading }}</p>
+
+<p>Cities: {{ homeData?.popularCities?.length }}</p>
+
+<p>Hotels: {{ homeData?.featuredHotels?.length }}</p>
 
 <section class="hero">
   <div class="hero-content">
@@ -21,140 +26,78 @@
         [(ngModel)]="checkOut"
         name="checkOut">
 
-      <select
-        [(ngModel)]="guests"
-        name="guests">
+      <select [(ngModel)]="guests" name="guests">
         <option [value]="1">1 khách</option>
         <option [value]="2">2 khách</option>
         <option [value]="3">3 khách</option>
         <option [value]="4">4 khách</option>
       </select>
 
-      <button type="submit">
-        Tìm kiếm
-      </button>
+      <button type="submit">Tìm kiếm</button>
     </form>
   </div>
 </section>
 
-<div *ngIf="loading" class="loading">
-  Đang tải dữ liệu...
-</div>
-
-<<<<<<< HEAD
 <div *ngIf="homeData" class="home-container">
 
   <!-- Điểm đến nổi bật -->
   <section class="section">
     <h2>Điểm đến nổi bật</h2>
-
     <div class="city-grid">
-
-      <div
-        class="city-card"
-        *ngFor="let city of (homeData?.popularCities || [])">
-
+      <div class="city-card" *ngFor="let city of homeData.popularCities">
         {{ city }}
-
       </div>
-
-      <div *ngIf="(homeData?.popularCities || []).length === 0">
-        Không có dữ liệu điểm đến.
-      </div>
-
+    </div>
+    <div *ngIf="(homeData?.popularCities || []).length === 0">
+      Không có dữ liệu điểm đến.
     </div>
   </section>
 
   <!-- Khách sạn nổi bật -->
   <section class="section">
     <h2>Khách sạn nổi bật</h2>
-
     <div class="hotel-grid">
-
-      <div
-        class="hotel-card"
-        *ngFor="let hotel of (homeData?.featuredHotels || [])">
-
+      <div class="hotel-card" *ngFor="let hotel of homeData.featuredHotels">
         <img
           [src]="hotel.imageUrl || 'https://picsum.photos/400/250'"
           [alt]="hotel.name">
-
         <div class="hotel-body">
-
           <h3>{{ hotel.name }}</h3>
-
           <p>{{ hotel.city }}</p>
-
-          <div class="star">
-            ⭐ {{ hotel.starRating }}
-          </div>
-
-          <div class="price">
-            Từ {{ hotel.minPrice | number }} đ
-          </div>
-
-          <button class="btn-view">
+          <div class="star">⭐ {{ hotel.starRating || 0 }}</div>
+          <div class="price">{{ hotel.minPrice | number }} đ</div>
+          <button class="btn-view" [routerLink]="['/hotel', hotel.id]">
             Xem chi tiết
           </button>
-
         </div>
       </div>
-
-      <div *ngIf="(homeData?.featuredHotels || []).length === 0">
-        Không có khách sạn nổi bật.
-      </div>
-
     </div>
   </section>
 
   <!-- Phòng Hot -->
   <section class="section">
     <h2>🔥 Phòng Hot</h2>
-
     <div class="room-grid">
-
-      <div
-        class="room-card"
-        *ngFor="let room of (homeData?.hotRooms || [])">
-
+      <div class="room-card" *ngFor="let room of (homeData?.hotRooms || [])">
         <img
           [src]="room.image || 'https://picsum.photos/400/250'"
           [alt]="room.roomName">
-
         <div class="room-body">
-
           <h3>{{ room.roomName }}</h3>
-
           <p>{{ room.hotelName }}</p>
-
-          <div class="price">
-            {{ room.price | number }} đ
-          </div>
-
-          <button class="btn-book">
-            Đặt phòng
-          </button>
-
+          <div class="price">{{ room.price | number }} đ</div>
+          <button class="btn-book">Đặt phòng</button>
         </div>
       </div>
-
       <div *ngIf="(homeData?.hotRooms || []).length === 0">
         Không có phòng hot.
       </div>
-
     </div>
   </section>
 
   <hr>
-
-
 </div>
-=======
+
 <ng-template #loading>
   <div class="loading">Đang tải dữ liệu...</div>
 </ng-template>
-
-
-
-
->>>>>>> 1ad2966e1821674d65bf58ea1db2b1c1017a1f6c
